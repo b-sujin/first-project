@@ -1,3 +1,15 @@
+.img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.img2 {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scaleY(-1);
+}
+
 /* 원근 : 사용자와 평면(z축) 사이에 800px의 거리 설정 */
 .perspective {
   position: relative;
@@ -36,9 +48,7 @@
   /* top, bottom */
   position: absolute;
   width: 200px;
-  aspect-ratio: 5/1;
-
-  background-color: hsl(0, 100%, 50%);
+  aspect-ratio: 10/1;
   transform-style: preserve-3d;
 }
 
@@ -48,23 +58,22 @@
   width: 200px;
   aspect-ratio: 1/2;
 
-  background-color: hsl(39, 100%, 66%);
   transform-style: preserve-3d;
 }
 
 .face2 {
   /* left, right */
   position: absolute;
-  width: 40px;
-  aspect-ratio: 1/10;
+  width: 20px;
+  height: 395px;
+  /*aspect-ratio: 1/10;*/
 
-  background-color: hsl(0, 0%, 0%);
   transform-style: preserve-3d;
 }
 
 /* 2D Pattern */
 .door {
-  animation: rotate 4s linear infinite;
+  animation: rotate 10s linear infinite; /* 회전 속도*/
 }
 .face0.bottom {
   top: 100%;
@@ -76,7 +85,7 @@
   bottom: 100%;
 }
 .face2.right {
-  left: 100%;
+  left: 120%;
 }
 .face2.left {
   right: 100%;
@@ -99,23 +108,46 @@
   transform: rotateX(-90deg);
 }
 .face0.top {
-  bottom: 100%;
-  transform-origin: bottom;
+  bottom: 88.5%;
+  transform-origin: center 0px -19px;
   transform: rotateX(90deg);
 }
 .face1.back {
   bottom: 100%;
-  transform-origin: center 400px -20px;
+  transform-origin: center 401px -9.8px;
   transform: rotateX(180deg);
 }
 .face2.right {
   left: 100%;
+  bottom: 0%;
   transform-origin: left;
   transform: rotateY(90deg);
 }
 
 .face2.left {
   right: 100%;
+  bottom: 0%;
   transform-origin: right;
   transform: rotateY(-90deg);
 }
+
+/* 음영 */ /*
+.face {
+  background-color: hsl(39, 100%, var(--lightness));
+}
+
+.face1.front {
+  --lightness: 66%;
+}
+.face0.bottom,
+.face0.top {
+  --lightness: 74%;
+}
+.face1.back {
+  --lightness: 78%;
+}
+.face2.right,
+.face2.left {
+  --lightness: 70%;
+}
+*/
