@@ -1,26 +1,21 @@
-.img {
+.img,
+.img2 {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 .img2 {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
   transform: scaleY(-1);
 }
 
 /* 원근 : 사용자와 평면(z축) 사이에 800px의 거리 설정 */
 .perspective {
-  position: relative;
   perspective: 800px;
-  perspective-origin: 50% 800px; /**/
-  margin: 0;
-  width: 100%;
-  min-height: 100vh;
-  text-align: center;
+  perspective-origin: 50% 800px;
   display: flex;
   align-items: center;
+  min-height: 100vh;
+  text-align: center;
 }
 
 .door {
@@ -29,6 +24,7 @@
   position: relative;
   transform-style: preserve-3d; /* 요소의 자식 요소가 3D 변환 지원하도록 설정 */
   margin: 0 auto;
+  animation: rotate 10s linear infinite; /* 회전 속도*/
 }
 
 .face0 {
@@ -59,9 +55,6 @@
 }
 
 /* 2D Pattern */
-.door {
-  animation: rotate 10s linear infinite; /* 회전 속도*/
-}
 .face0.bottom {
   top: 100%;
 }
@@ -117,24 +110,3 @@
   transform-origin: right;
   transform: rotateY(-90deg);
 }
-
-/* 음영 */ /*
-.face {
-  background-color: hsl(39, 100%, var(--lightness));
-}
-
-.face1.front {
-  --lightness: 66%;
-}
-.face0.bottom,
-.face0.top {
-  --lightness: 74%;
-}
-.face1.back {
-  --lightness: 78%;
-}
-.face2.right,
-.face2.left {
-  --lightness: 70%;
-}
-*/
