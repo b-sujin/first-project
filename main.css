@@ -1,0 +1,121 @@
+/* 원근 : 사용자와 평면(z축) 사이에 800px의 거리 설정 */
+.perspective {
+  position: relative;
+  perspective: 800px;
+  perspective-origin: 50% 800px; /**/
+  margin: 0;
+  width: 100%;
+  min-height: 100vh;
+  text-align: center;
+  display: flex;
+  align-items: center;
+}
+
+.door {
+  width: 200px;
+  aspect-ratio: 1/2; /* 가로세로 1:2 */
+  position: relative;
+  transform-style: preserve-3d; /* 요소의 자식 요소가 3D 변환 지원하도록 설정 */
+  margin: 0 auto;
+}
+
+/*
+.handle {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  background-color: red;
+  border-radius: 50%;
+  transform-style: preserve-3d;
+}*/
+
+.face0 {
+  /* top, bottom */
+  position: absolute;
+  width: 200px;
+  aspect-ratio: 5/1;
+
+  background-color: hsl(0, 100%, 50%);
+  transform-style: preserve-3d;
+}
+
+.face1 {
+  /* front, back */
+  position: absolute;
+  width: 200px;
+  aspect-ratio: 1/2;
+
+  background-color: hsl(39, 100%, 66%);
+  transform-style: preserve-3d;
+}
+
+.face2 {
+  /* left, right */
+  position: absolute;
+  width: 40px;
+  aspect-ratio: 1/10;
+
+  background-color: hsl(0, 0%, 0%);
+  transform-style: preserve-3d;
+}
+
+/* 2D Pattern */
+.door {
+  animation: rotate 4s linear infinite;
+}
+.face0.bottom {
+  top: 100%;
+}
+.face0.top {
+  bottom: 100%;
+}
+.face1.back {
+  bottom: 100%;
+}
+.face2.right {
+  left: 100%;
+}
+.face2.left {
+  right: 100%;
+}
+
+/* 회전 애니메이션 */
+@keyframes rotate {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
+/* 전개도 합체 */
+.face0.bottom {
+  top: 100%;
+  transform-origin: top;
+  transform: rotateX(-90deg);
+}
+.face0.top {
+  bottom: 100%;
+  transform-origin: bottom;
+  transform: rotateX(90deg);
+}
+.face1.back {
+  bottom: 100%;
+  transform-origin: center 400px -20px;
+  transform: rotateX(180deg);
+}
+.face2.right {
+  left: 100%;
+  transform-origin: left;
+  transform: rotateY(90deg);
+}
+
+.face2.left {
+  right: 100%;
+  transform-origin: right;
+  transform: rotateY(-90deg);
+}
